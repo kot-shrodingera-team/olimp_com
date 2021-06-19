@@ -1,8 +1,14 @@
 import { awaiter, getElement, log } from '@kot-shrodingera-team/germes-utils';
 import getStakeCount from '../stake_info/getStakeCount';
+import clearCoupon from './clearCoupon';
 import JsFailError from './errors/jsFailError';
 
 const openBet = async (): Promise<void> => {
+  const couponCleared = await clearCoupon();
+  if (!couponCleared) {
+    throw new JsFailError('Не удалось очистить купон');
+  }
+
   const { selectionId } = JSON.parse(worker.BetId);
 
   log(`Ищем ставку "${worker.BetName}"`, 'steelblue');
