@@ -9,6 +9,7 @@ import setStakeSum from './worker_callbacks/setStakeSum';
 import getStakeInfo from './worker_callbacks/getStakeInfo';
 import initialize from './initialization';
 import fastLoad from './fastLoad';
+import { clearGermesData } from './bookmakerApi';
 
 worker.SetCallBacks(
   log,
@@ -21,6 +22,7 @@ worker.SetCallBacks(
 );
 
 worker.SetFastCallback(fastLoad);
+clearGermesData();
 
 (async (): Promise<void> => {
   if (localStorage.getItem('couponOpening') === '1' && worker.IsShowStake) {
