@@ -27,6 +27,11 @@ worker.SetFastCallback(fastLoad);
     log('Загрузка страницы с открытием купона', 'steelblue');
     showStake();
   } else if (!worker.IsShowStake) {
+    localStorage.setItem('couponOpening', '0');
+    worker.SetSessionData(
+      `${window.germesData.bookmakerName}.TransitionToEventPage`,
+      '0'
+    );
     log('Загрузка страницы с авторизацией', 'steelblue');
     initialize();
   } else {
