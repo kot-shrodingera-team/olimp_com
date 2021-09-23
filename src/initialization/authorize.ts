@@ -13,7 +13,7 @@ const authorize = (() => {
     passwordInputSelector: '.enter-block input[name="passw"]',
     submitButtonSelector: 'button.enterBtn',
     inputType: 'fireEvent',
-    beforeSubmitDelay: 100, // на olimp.com бывала ошибка 404 при авторизации, с небольшой паузой вроде всё нормально
+    beforeSubmitDelay: 1000, // на olimp.com бывала ошибка 404 при авторизации, с паузой вроде всё нормально
     // captchaSelector: '',
     // loginedWait: {
     //   loginedSelector: '',
